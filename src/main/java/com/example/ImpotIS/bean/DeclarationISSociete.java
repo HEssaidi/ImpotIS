@@ -1,30 +1,40 @@
 package com.example.ImpotIS.bean;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+@Entity
 public class DeclarationISSociete {
+	@Id  //chaque entité doit etre marque avec un @Id 
+	@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id; 
 	private String reference; 
 	private Long annee; 
+	@ManyToOne
 	private Societe societe; 
-	private Float chiffreAffaire; 
-	private Float totalCharges; 
-	//private Float benifice ;//  calculable 
-	private Float montantBaseIs; //
+	private BigDecimal chiffreAffaire; 
+	private BigDecimal totalCharges; 
+	private BigDecimal benifice ;//  calculable 
+	private BigDecimal montantBaseIs; //
 	private Long nombreMoisRetard; 
-	private Float montantRetard; 
-	private Float montantTotal; //  calculable 
+	private BigDecimal montantRetard; 
+	private BigDecimal montantTotal; //  calculable 
 	private Date dateDeclarationIs;
+	@ManyToOne
+	private TauxIs tauxIs;
 	
 	
 	public DeclarationISSociete() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 
-	public DeclarationISSociete(Long id, String reference, Long annee, Societe societe, Float chiffreAffaire,
-			Float totalCharges, Float montantBaseIs, Long nombreMoisRetard, Float montantRetard, Float montantTotal,
+	public DeclarationISSociete(Long id, String reference, Long annee, Societe societe, BigDecimal chiffreAffaire,
+			BigDecimal totalCharges, BigDecimal montantBaseIs, Long nombreMoisRetard, BigDecimal montantRetard, BigDecimal montantTotal,
 			Date dateDeclarationIs) {
 		super();
 		this.id = id;
@@ -81,32 +91,32 @@ public class DeclarationISSociete {
 	}
 
 
-	public Float getChiffreAffaire() {
+	public BigDecimal getChiffreAffaire() {
 		return chiffreAffaire;
 	}
 
 
-	public void setChiffreAffaire(Float chiffreAffaire) {
+	public void setChiffreAffaire(BigDecimal chiffreAffaire) {
 		this.chiffreAffaire = chiffreAffaire;
 	}
 
 
-	public Float getTotalCharges() {
+	public BigDecimal getTotalCharges() {
 		return totalCharges;
 	}
 
 
-	public void setTotalCharges(Float totalCharges) {
+	public void setTotalCharges(BigDecimal totalCharges) {
 		this.totalCharges = totalCharges;
 	}
 
 
-	public Float getMontantBaseIs() {
+	public BigDecimal getMontantBaseIs() {
 		return montantBaseIs;
 	}
 
 
-	public void setMontantBaseIs(Float montantBaseIs) {
+	public void setMontantBaseIs(BigDecimal montantBaseIs) {
 		this.montantBaseIs = montantBaseIs;
 	}
 
@@ -121,22 +131,22 @@ public class DeclarationISSociete {
 	}
 
 
-	public Float getMontantRetard() {
+	public BigDecimal getMontantRetard() {
 		return montantRetard;
 	}
 
 
-	public void setMontantRetard(Float montantRetard) {
+	public void setMontantRetard(BigDecimal montantRetard) {
 		this.montantRetard = montantRetard;
 	}
 
 
-	public Float getMontantTotal() {
+	public BigDecimal getMontantTotal() {
 		return montantTotal;
 	}
 
 
-	public void setMontantTotal(Float montantTotal) {
+	public void setMontantTotal(BigDecimal montantTotal) {
 		this.montantTotal = montantTotal;
 	}
 

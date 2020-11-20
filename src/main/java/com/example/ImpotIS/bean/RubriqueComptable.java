@@ -1,15 +1,20 @@
 package com.example.ImpotIS.bean;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.ManyToAny;
+@Entity
 public class RubriqueComptable {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
-	private String code; 
+	private Long code; 
 	private String libelle; 
+	@ManyToOne // toOne
 	private ClasseComptable classeComptable;
 	
 	public RubriqueComptable() {
@@ -17,7 +22,7 @@ public class RubriqueComptable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RubriqueComptable(Long id, String code, String libelle, ClasseComptable classeComptable) {
+	public RubriqueComptable(Long id, Long code, String libelle, ClasseComptable classeComptable) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -33,11 +38,11 @@ public class RubriqueComptable {
 		this.id = id;
 	}
 
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 
