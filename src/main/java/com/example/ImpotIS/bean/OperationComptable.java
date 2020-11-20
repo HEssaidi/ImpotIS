@@ -1,11 +1,13 @@
 package com.example.ImpotIS.bean;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class OperationComptable {
@@ -13,12 +15,16 @@ public class OperationComptable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
 	private String libelle;
-	private String typeOperationComptable;//?????
-	private Float montant;
+	@ManyToOne
+	private TypeOperationComptable typeOperationComptable;//0 ou 1
+	private BigDecimal montant;
 	private Date dateOperation;
+	@ManyToOne
 	private CompteComptable compteComptable;
+	@ManyToOne
 	private Societe societe;
-	public OperationComptable(Long id, String libelle, String typeOperationComptable, Float montant, Date dateOperation,
+	
+	public OperationComptable(Long id, String libelle, TypeOperationComptable typeOperationComptable, BigDecimal montant, Date dateOperation,
 			CompteComptable compteComptable, Societe societe) {
 		super();
 		this.id = id;
@@ -45,16 +51,16 @@ public class OperationComptable {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public String getTypeOperationComptable() {
+	public TypeOperationComptable getTypeOperationComptable() {
 		return typeOperationComptable;
 	}
-	public void setTypeOperationComptable(String typeOperationComptable) {
+	public void setTypeOperationComptable(TypeOperationComptable typeOperationComptable) {
 		this.typeOperationComptable = typeOperationComptable;
 	}
-	public Float getMontant() {
+	public BigDecimal getMontant() {
 		return montant;
 	}
-	public void setMontant(Float montant) {
+	public void setMontant(BigDecimal montant) {
 		this.montant = montant;
 	}
 	public Date getDateOperation() {
@@ -82,6 +88,14 @@ public class OperationComptable {
 				+ ", compteComptable=" + compteComptable + ", societe=" + societe + "]";
 	} 
 	
+	
+	//calcul des montants des ops
+	/*public BigDecimal calculMontantOps(Societe societe) {
+		BigDecimal montant=0;
+		montant+=
+		return montant;
+		
+	}*/
 	
 	
 }

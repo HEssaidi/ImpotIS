@@ -10,14 +10,14 @@ public class ClasseComptable {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String code; 
+	private Long code; 
 	private String libelle;
 	
 	public ClasseComptable() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ClasseComptable(Long id, String code, String libelle) {
+	public ClasseComptable(Long id, Long code, String libelle) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -29,10 +29,10 @@ public class ClasseComptable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getCode() {
+	public Long getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 	public String getLibelle() {

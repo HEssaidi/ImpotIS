@@ -1,5 +1,8 @@
 package com.example.ImpotIS.bean;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,20 +14,40 @@ public class TauxIs {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
 	private String libelle;
-	private Float montantMax;
-	private Float montantMin;
-	private Float pourcentage;
-	private Float montantRetard;
+	private Date dateMin;
+	private Date dateMax;
+	private BigDecimal montantMax;
+	private BigDecimal montantMin;
+	private BigDecimal pourcentage;
+	private BigDecimal montantRetard;
 	
-	
-	
+	public Date getDateMin() {
+		return dateMin;
+	}
+
+
+	public void setDateMin(Date dateMin) {
+		this.dateMin = dateMin;
+	}
+
+
+	public Date getDateMax() {
+		return dateMax;
+	}
+
+
+	public void setDateMax(Date dateMax) {
+		this.dateMax = dateMax;
+	}
+
+
 	public TauxIs() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public TauxIs(Long id, String libelle, Float montantMax, Float montantMin, Float pourcentage, Float montantRetard) {
+	public TauxIs(Long id, String libelle, BigDecimal montantMax, BigDecimal montantMin, BigDecimal pourcentage, BigDecimal montantRetard) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
@@ -47,28 +70,28 @@ public class TauxIs {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public Float getMontantMax() {
+	public BigDecimal getMontantMax() {
 		return montantMax;
 	}
-	public void setMontantMax(Float montantMax) {
+	public void setMontantMax(BigDecimal montantMax) {
 		this.montantMax = montantMax;
 	}
-	public Float getMontantMin() {
+	public BigDecimal getMontantMin() {
 		return montantMin;
 	}
-	public void setMontantMin(Float montantMin) {
+	public void setMontantMin(BigDecimal montantMin) {
 		this.montantMin = montantMin;
 	}
-	public Float getPourcentage() {
+	public BigDecimal getPourcentage() {
 		return pourcentage;
 	}
-	public void setPourcentage(Float pourcentage) {
+	public void setPourcentage(BigDecimal pourcentage) {
 		this.pourcentage = pourcentage;
 	}
-	public Float getMontantRetard() {
+	public BigDecimal getMontantRetard() {
 		return montantRetard;
 	}
-	public void setMontantRetard(Float montantRetard) {
+	public void setMontantRetard(BigDecimal montantRetard) {
 		this.montantRetard = montantRetard;
 	} 
 	@Override
