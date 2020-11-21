@@ -11,8 +11,8 @@ import com.example.ImpotIS.bean.RubriqueComptable;
 
 @Repository
 public interface RubriqueComptableDao extends JpaRepository<RubriqueComptable, Long> {
-	public RubriqueComptable findByCode(int code);
-	public RubriqueComptable findByLibelle(String lib);
-	public RubriqueComptable findByClasseComptable(ClasseComptable c);
+	public RubriqueComptable findByCode(Long code);
+	public RubriqueComptable findByLibelle(String libelle);
+	public RubriqueComptable findByClasseComptable(ClasseComptable classeComptable);
 
 }

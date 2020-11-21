@@ -21,7 +21,7 @@ public class TypeOperationComptable {
 		super();
 		this.id = id;
 		this.code = code;
-		this.libelle = libelle;
+		this.libelle = libelle;//debit or credit
 	}
 	public Long getId() {
 		return id;
