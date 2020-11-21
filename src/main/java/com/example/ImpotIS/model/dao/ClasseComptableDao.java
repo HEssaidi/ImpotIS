@@ -9,6 +9,6 @@ import com.example.ImpotIS.bean.ClasseComptable;
 @Repository
 public interface ClasseComptableDao extends JpaRepository<ClasseComptable, Long>{
 	public List<ClasseComptable> findByLibelle(String libelle);
-	public List<ClasseComptable> findByCode(int code);
+	public List<ClasseComptable> findByCode(Long code);
 
 }
